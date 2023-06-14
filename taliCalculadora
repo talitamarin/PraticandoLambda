@@ -1,3 +1,25 @@
+ exports.handler = async (event) => {
+    
+    var recebido = JSON.parse(event.body);
+
+    console.log("entrando na lambda");
+    
+    var login = recebido.login;
+    var senha = recebido.senha;
+    var resultadoCompras;
+    
+    if (login == "tali" && senha == 123) {
+        console.log("logado com administrador"); 
+    
+        var compra1 = recebido.compra1;
+        var compra2 = recebido.compra2;
+        
+        resultadoCompras = compra1 + compra2;
+        
+    } else {
+        console.log("falhou na hora de logar");
+    }
+    
     var num1 = recebido.num1;
     
     if (num1 == 10 || num1 == 11) {
@@ -26,7 +48,6 @@
     }
     
    console.log("saindo da lambda");
-   
    
     const response = { 
         statusCode: 200,
